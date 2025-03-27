@@ -4,8 +4,8 @@
     const boton = document.getElementById('buttonScreen1');
 
     // Variables configurables
-    const porcentajeDiámetroLandscape = 30; // Diámetro como porcentaje del ancho en modo landscape
-    const porcentajeDiámetroPortrait = 80;  // Diámetro como porcentaje del ancho en modo portrait (1080x1920)
+    const porcentajeDiámetroLandscape = 60; // Diámetro como porcentaje del ancho en modo landscape
+    const porcentajeDiámetroPortrait = 120;  // Diámetro como porcentaje del ancho en modo portrait (1080x1920)
     const velocidadCierre = 1; // Velocidad de la animación de cierre en segundos
     const velocidadBaseMin = 0.06; // Velocidad mínima
     const velocidadBaseMax = 0.10; // Velocidad máxima
@@ -268,7 +268,7 @@
         // Reducir el tamaño gradualmente
         const reduccionGradual = setInterval(() => {
             radio = radio * 0.99;
-            if (radio < diametro * 0.4) {
+            if (radio < diametro * 0.33) {
                 clearInterval(reduccionGradual);
             }
         }, 50);
@@ -277,7 +277,6 @@
   function agrandarDiametroYCambiarColor() {
     // Cambiar el color a blanco
     capaInterna.style.transition = 'background-color 1.5s ease-in-out';
-    capaInterna.style.backgroundColor = '#ffffff';
     
     // Ajustar z-index para que quede detrás de las barras
     capaInterna.style.zIndex = '1';

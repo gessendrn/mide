@@ -68,45 +68,46 @@ function generateBars(direction = 1, moveBarsLeft = true) {
 
 // Función para iniciar la animación de ola con reordenamiento de barras
 function startWaveAnimation() {
-  const bars = document.querySelectorAll('.bar');
+  // const bars = document.querySelectorAll('.bar');
   
-  bars.forEach((bar, index) => {
-    const position = index / totalBars;
-    const baseAmplitude = isLandscape ? -70 : -90;
-    const waveHeight = baseAmplitude * Math.sin(position * Math.PI);
-    const waveHeightDown = Math.abs(waveHeight);
+  // bars.forEach((bar, index) => {
+  //   const position = index / totalBars;
+  //   const baseAmplitude = isLandscape ? -70 : -90;
+  //   const waveHeight = baseAmplitude * Math.sin(position * Math.PI);
+  //   const waveHeightDown = Math.abs(waveHeight);
 
-    // Primero eliminar cualquier animación anterior
-    bar.style.animation = '';
-    bar.classList.remove('animating', 'wave-both');
+  //   // Primero eliminar cualquier animación anterior
+  //   bar.style.animation = '';
+  //   bar.classList.remove('animating', 'wave-both');
 
-    // Establecer el ancho objetivo basado en la dirección guardada
-    const targetWidth = parseFloat(bar.dataset.targetWidth);
+  //   // Establecer el ancho objetivo basado en la dirección guardada
+  //   const targetWidth = parseFloat(bar.dataset.targetWidth);
     
-    // Aplicar transición al ancho durante la animación de ola
-    bar.style.transition = 'flex-basis 1.5s ease-in-out';
+  //   // Aplicar transición al ancho durante la animación de ola
+  //   bar.style.transition = 'flex-basis 1.5s ease-in-out';
     
-    // Establecer los valores de la ola
-    bar.style.setProperty('--wave-height', `${waveHeight}px`);
-    bar.style.setProperty('--wave-height-down', `${waveHeightDown}px`);
-    bar.style.setProperty('--animation-duration', `${animationDuration}s`);
+  //   // Establecer los valores de la ola
+  //   bar.style.setProperty('--wave-height', `${waveHeight}px`);
+  //   bar.style.setProperty('--wave-height-down', `${waveHeightDown}px`);
+  //   bar.style.setProperty('--animation-duration', `${animationDuration}s`);
 
-    // Retraso entre barras
-    const delayFactor = isLandscape ? 5 : 10;
-    const delay = (index * delayFactor) / 900;
-    bar.style.animationDelay = `${delay}s`;
+  //   // Retraso entre barras
+  //   const delayFactor = isLandscape ? 5 : 10;
+  //   const delay = (index * delayFactor) / 900;
+  //   bar.style.animationDelay = `${delay}s`;
     
-    // Aplicar el mismo retraso para la transición del ancho
-    setTimeout(() => {
-      bar.style.flex = `0 0 ${targetWidth}px`;
-    }, delay * 1000);
+  //   // Aplicar el mismo retraso para la transición del ancho
+  //   setTimeout(() => {
+  //     bar.style.flex = `0 0 ${targetWidth}px`;
+  //   }, delay * 1000);
 
-    // Forzar un reflow para asegurar que los estilos se apliquen antes de añadir la animación
-    void bar.offsetWidth;
+  //   // Forzar un reflow para asegurar que los estilos se apliquen antes de añadir la animación
+  //   void bar.offsetWidth;
 
-    // Aplicar la animación
-    bar.classList.add('animating', 'wave-both');
-  });
+  //   // Aplicar la animación
+  //   bar.classList.add('animating', 'wave-both');
+  // });
+  return;
 }
 
 // Función para disminuir gradualmente la amplitud de la ola
@@ -304,6 +305,14 @@ function goToNextScreen(
     // Regenerar y animar barras
     generateBars(currentDirection);
     startWaveAnimation();
+  }
+
+  if (nextScreen === 'screen4') {
+  const barContainer = document.getElementById('barContainer');
+    barContainer.style.opacity = '0';
+  }
+  else {
+    barContainer.style.opacity = '1';
   }
 
 // === REEMPLAZA ESTO ===

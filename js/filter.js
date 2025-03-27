@@ -65,9 +65,9 @@
       const blob = new Blob(recordedChunks, { type: 'video/webm' });
       const url = URL.createObjectURL(blob);
       video.srcObject = null;
-      video.src = url;
-      video.controls = true;
-      video.play();
+      //video.src = url;
+      //video.controls = true;
+      //video.play();
 
       // Wait a few seconds, then navigate to email.html
       setTimeout(() => {
