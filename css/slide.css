@@ -1,0 +1,115 @@
+.slides-container {
+  width: 100dvw;
+  height: 100dvh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-row {
+  width: 100%;
+  height: 33.33%; /* Cada fila ocupa un tercio de la pantalla */
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-track {
+  display: flex;
+  width: max-content;
+}
+
+/* Estado inicial de las filas - fuera de la pantalla */
+.slide-row-1 .slide-track {
+  transform: translateX(100%);
+}
+.slide-row-2 .slide-track {
+  transform: translateX(-100%);
+}
+.slide-row-3 .slide-track {
+  transform: translateX(100%);
+}
+
+/* Animaciones de entrada y movimiento continuo */
+.slide.deployed .slide-row-1 .slide-track {
+  animation: 
+    enterRow1 2s ease-out 1s forwards,  /* Añadido 1s de retraso */
+    slideRow1 80s linear infinite 3s;   /* Ajustado a 4s para mantener la sincronización */
+}
+.slide.deployed .slide-row-2 .slide-track {
+  animation: 
+    enterRow2 2s ease-out 1s forwards,  /* Añadido 1s de retraso */
+    slideRow2 80s linear infinite 3s;   /* Ajustado a 4s para mantener la sincronización */
+}
+.slide.deployed .slide-row-3 .slide-track {
+  animation: 
+    enterRow3 2s ease-out 1s forwards,  /* Añadido 1s de retraso */
+    slideRow3 80s linear infinite 3s;   /* Ajustado a 4s para mantener la sincronización */
+}
+
+/* Definición de las animaciones */
+@keyframes enterRow1 {
+  from { transform: translateX(25%); }
+  to { transform: translateX(0); }
+}
+@keyframes enterRow2 {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(-75%); }
+}
+@keyframes enterRow3 {
+  from { transform: translateX(25%); }
+  to { transform: translateX(0); }
+}
+@keyframes slideRow1 {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes slideRow2 {
+  from { transform: translateX(-75); }
+  to { transform: translateX(-25%); }
+}
+@keyframes slideRow3 {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Imágenes adaptativas */
+.slide-track img {
+  height: 640px; /* Altura relativa a la fila */
+  width: auto;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* Media query para orientación landscape */
+@media (orientation: landscape) {
+  .slide-row {
+    height: 50%; /* En landscape, cada fila ocupa la mitad de la pantalla */
+  }
+  
+  /* Opcional: ajustar solo 2 filas en modo landscape */
+  .slide-row-3 {
+    display: none; /* Ocultar la tercera fila en landscape */
+  }
+  
+  /* O si prefieres mantener las 3 filas pero ajustar su tamaño */
+  /*
+  .slide-row {
+    height: 33.33%; 
+  }
+  */
+  
+  .slide-track img {
+    max-height: 100%;
+    max-width: 100vh; /* Limitar el ancho máximo en landscape */
+  }
+}
+
+/* Opcional: ajuste específico para pantallas muy anchas */
+@media (min-aspect-ratio: 16/9) {
+  .slide-track img {
+    height: 100%;
+    max-width: 90vh; /* Evitar que las imágenes se vean demasiado estiradas */
+  }
+}

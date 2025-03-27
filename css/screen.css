@@ -1,0 +1,347 @@
+ /* Estilos generales */
+ body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #4f6fa7;
+  }
+
+  /* Contenedor principal */
+  .container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #4f6fa7;
+  }
+
+  /* Capa del slide (fondo amarillo) */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0; /* Asegura que el slide ya esté en su posición */
+  background-color: #ffcc00;
+}
+
+/* Eliminar estas reglas que mueven el slide de izquierda a derecha */
+
+.container.animate .slide {
+  left: 0;
+}
+
+.container.reverse-animate .slide {
+  left: -100%;
+}
+
+
+/* En su lugar, mantener el slide estático y enfocar en las animaciones de cada fila */
+.slide.deployed .slide-row {
+  opacity: 1;
+}
+
+  /* Contenedor de las barras */
+.bar-container {
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: flex-end;
+    box-sizing: border-box;
+    z-index: 2;
+    transition: left 3.5s ease-out;
+    left: -100%;
+  }
+
+.bar-container.deployed {
+    left: 0;
+  }
+
+  /* Estilo de las barras */
+.bar {
+    background-color: #0a2d81;
+    margin-right: var(--bar-spacing, 4px);
+    height: 100%;
+    transition: width 0.8s ease, margin-right 0.8s ease, transform 0.5s ease;
+    position: relative;
+    transform-origin: bottom center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+  }
+
+  /* Animación de ola arriba y abajo */
+@keyframes wave-both {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(var(--wave-height, -70px)); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(var(--wave-height-down, 70px)); } /* Asegúrate de que este valor es positivo */
+    100% { transform: translateY(0); }
+  }
+
+  /* Efecto de brillo en las barras */
+.bar.animating {
+    background: linear-gradient(to bottom, #0a2d81, #1e56c2);
+    animation: wave-both var(--animation-duration, 1.5s) ease-in-out infinite;
+  }
+
+  /* Estilos para las pantallas */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 6s ease-in-out; /* Transición suave para el fade */
+    pointer-events: none; /* Evita interacciones mientras está invisible */
+  }
+  
+.screen.visible {
+    opacity: 1; /* Visible */
+    pointer-events: auto; /* Permite interacciones */
+  }
+
+  /* Colores de fondo para las pantallas */
+.screen1 { 
+    /* background-color: #4f6fa7; */
+    z-index: 10;
+    position: relative;
+   }
+.screen2 { 
+    z-index: 10;
+   }
+
+.screen3 {
+    z-index: 10;
+  }
+.screen4 { 
+    z-index: 10;
+   }
+.screen5 {
+    z-index: 10;
+    /* background-color: #4f6fa7;  */
+  }
+.screen6 {
+    z-index: 10;
+  }
+.screen7 {
+    z-index: 10; /* Bajar z-index para ver slide */
+    background-color: transparent; /* Transparente */
+    pointer-events: none; /* Para no bloquear interacciones */
+  }
+
+  /* Botón de siguiente pantalla */
+.next-button {
+    font-size: 20%;
+    width: 300px;
+    height: 90px;
+    position: fixed;
+    bottom: 350px;
+    left: 98%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+    background-color: rgb(212, 69, 69);
+    border: none;
+    border-radius: 30px 0px 0px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    color: aliceblue;
+  }
+
+.next-button {
+    font-size: 20%;
+    width: 300px;
+    height: 90px;
+    position: fixed;
+    bottom: 250px;
+    left: 98%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+    background-color: rgb(212, 69, 69);
+    border: none;
+    border-radius: 30px 0px 0px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    color: aliceblue;
+  }
+
+
+.dialog-screen {
+    font-family: 'SharpGroteskMedium';
+    font-size: 30px;
+    width: 850px;
+    height: 200px;
+    background-color: #FFD244;
+    color: #1e56c2;
+    border-radius: 20px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 50px 20px;
+    padding-top: 60px;
+  }
+
+.dialog-screen2 {
+  font-family: 'SharpGroteskMedium';
+  font-size: 40px;
+  width: 800px;
+  height: 230px;
+  background-color: #FFD244;
+  color: #1e56c2;
+  border-radius: 20px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 100px 20px;
+  }
+
+.dialog-screen5 {
+  font-family: 'SharpGroteskMedium';
+  font-size: 40px;
+  width: 650px;
+  height: 250px;
+  background-color: #FFD244;
+  color: #1e56c2;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 90px 20px;
+  }
+
+.dialog-screen7 {
+  font-family: 'SharpGroteskMedium';
+  font-size: 40px;
+  width: 700px;
+  height: auto;
+  background-color: #184496;
+  color: white;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 110px 30px;
+  }
+
+.screen7-dialog-0 {
+  width: 700px;
+  height: 150px;
+}
+
+.screen7-dialog-1 {
+  font-family: 'SharpGroteskLight';
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 25px;
+}
+
+.screen7-dialog-2 {
+  font-family: 'SharpGroteskMedium';
+  font-weight: 600;
+  font-size: 40px;
+  color: #F8D460;
+  margin-top: 5px;
+}
+
+.check-box {
+  width: 60px;
+  margin-right: 25px;
+  color: #D2565A; /* Rojo puro (#FF0000) */
+
+}
+
+/* Oculta el checkbox nativo */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ccc; /* Borde gris */
+  border-radius: 3px;
+  background-color: white; /* Fondo siempre blanco */
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  color: #D2565A; /* Rojo puro (#FF0000) */
+
+}
+
+/* Palomita roja al estar marcado */
+input[type="checkbox"]:checked::before {
+  content: "✓";
+  position: absolute;
+  font-size: 30px;
+  font-weight: bold;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+#blue-cover-screen6 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #184496ad; /* Fondo azul traslúcido */
+  z-index: 1000;
+}
+
+
+
+/* Estilo para las barras amarillas (solo en screen7) */
+.screen7 .bar {
+  background-color: #FFD244 !important;
+  background: linear-gradient(to bottom, #FFD244, #FFE180) !important;
+}
+
+/* Animación de entrada desde la izquierda */
+.bar-container-entrance {
+  left: -100%;
+  transition: left 3.5s ease-out !important;
+}
+
+/* Animación de ola (ya existe en tu código) */
+@keyframes wave-both {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(var(--wave-height, -70px)); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(var(--wave-height-down, 70px)); }
+  100% { transform: translateY(0); }
+}
+
+
+#buttonScreen6,
+#buttonScreen6-2 {
+  position: relative;
+  display: block;  /* Cambia de 'none' a 'block' */
+
+}
+
+/* 
+#canvas {
+  width: 100%;
+  height: 1000px;
+  margin-top: 400px;
+} */
+
+.hidden {
+  display: none;
+}

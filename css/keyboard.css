@@ -1,0 +1,85 @@
+.label-keyboard {
+    font-size: 2rem;
+    color: #194396;
+  }
+
+.input-keyboard {
+  position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    padding: 20px 30px;
+    margin: 10px 0;
+    font-size: 2.5rem;
+    border: 2px solid #194396;
+    border-radius: 20px;
+    text-align: center;
+    background-color: white;
+  }
+
+  /* Keyboard Styles */
+.keyboard {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 20px;
+    padding: 20px; /* Reduce el padding si es necesario */
+    background-color: #FFD244;
+    border-radius: 15px;
+    width: 90%;
+}
+
+.row-keyboard {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  width: 100%; /* Cambia esto para que ocupe todo el ancho del teclado */
+}
+
+  .button-keyboard {
+    background-color: #3c3c3a;
+    color: white;
+    border: none;
+    padding: 12px 8px;
+    font-size: 2.5rem;
+    margin: 3px;
+    border-radius: 15px;
+    cursor: pointer;
+    min-width: 8%; /* Ajusta este valor según sea necesario */
+    width: auto; /* Cambia esto para que no fuerce un ancho del 60% */
+}
+
+  .button-keyboard:hover {
+    background-color: #133573;
+  }
+
+  /* Special Buttons */
+  .button-keyboard:last-child {
+    background-color: #3c3c3a;
+  }
+
+  .button-keyboard:last-child:hover {
+    background-color: #133573;
+    /* background-color: #c0392b; */
+  }
+  .next-button-keyboard {
+    position: absolute;
+    bottom: 10%;
+    right: 0%;
+    padding: 10px 20px;
+    padding-right: 180px;
+    background-color: #194396 !important;
+    color: #facd60;
+    font-size: 6rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 100px 0 0 100px;
+    cursor: pointer;
+    width:40%;
+  }
+
+  .next-button-keyboard:hover {
+    background-color: #133573 !important;
+  }

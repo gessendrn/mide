@@ -1,0 +1,46 @@
+.capa-externa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.8); Color de la capa externa */
+    z-index: 1;
+    clip-path: circle(100% at center);
+    transition: clip-path 1s ease-in-out;
+  }
+
+  .capa-interna {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(255, 255, 255, 0.8); Color de la capa interna */
+    z-index: 2;
+    clip-path: circle(100% at center);
+    transition: clip-path 1s ease-in-out;
+  }
+
+  .screen3 .circulo {
+      width: 500px;
+      height: 500px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 2s ease-in-out;
+  }
+
+  .screen3 .circulo.reducido {
+      width: 300px;
+      height: 300px;
+  }
+
+  .screen3 .capa-interna {
+      background-color: white;
+      clip-path: circle(50% at center);
+      transition: all 2s ease-in-out;
+  }

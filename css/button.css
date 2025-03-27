@@ -1,0 +1,131 @@
+.pulse-button {
+    width: 150px;
+    height: 150px;
+    background-color: #D2565A;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    left: 30%;
+    animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7),
+                    0 0 0 0 rgba(255, 71, 87, 0.5),
+                    0 0 0 0 rgba(255, 71, 87, 0.3);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 20px rgba(255, 71, 87, 0),
+                    0 0 0 40px rgba(255, 71, 87, 0),
+                    0 0 0 60px rgba(255, 71, 87, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7),
+                    0 0 0 0 rgba(255, 71, 87, 0.5),
+                    0 0 0 0 rgba(255, 71, 87, 0.3);
+    }
+}
+
+.camera-button {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #D2565A;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 80%;
+    left: 45%;
+}
+
+#buttonScreen1 {
+    background-image: url('../img/hand-button.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* o 'contain' según lo que necesites */
+    background-size: 70%
+}
+
+.arrow-button {
+    width: 60px;
+    height: 70px;
+    margin-right: 160px;
+}
+
+.tip-button {
+    width: 70px;
+    height: 70px;
+}
+
+.next-button-yes {
+    font-size: 40px;
+    width: 250px;
+    height: 70px;
+    top: 0px;
+    left: 350px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: #184496;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    color: aliceblue;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  .next-button-no {
+    font-size: 40px;
+    width: 250px;
+    height: 70px;
+    top: 70px;
+    left: 50px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: rgb(212, 69, 69);
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    color: aliceblue;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+
+.next-button-camera {
+    font-size: 40px;
+    width: 250px;
+    height: 70px;
+    top: 0px;
+    left: 250px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: #D2565A;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    color: aliceblue;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.next-button-exit {
+  font-size: 35px;
+  width: 250px;
+  height: 70px;
+  top: 670px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+  background-color: rgb(212, 69, 69);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  color: aliceblue;
+  }

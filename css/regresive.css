@@ -1,0 +1,25 @@
+
+  .container-count {
+    text-align: center;
+  }
+  
+  .circle-count {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+    position: fixed; /* Fija el círculo en el viewport */
+    top: 50%; /* Lo coloca en el centro vertical */
+    left: 50%; /* Lo coloca en el centro horizontal */
+    transform: translate(-50%, -50%); /* Ajusta el centrado exacto */
+  }
+  
+  .hidden-count {
+    display: none;
+  }

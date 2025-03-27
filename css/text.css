@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'SharpGroteskMedium';
+    src: url('../fnt/SharpGrotesk-Medium25.otf') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SharpGroteskBold';
+    src: url('../fnt/SharpGrotesk-Bold25.ttf') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SharpGroteskLight';
+    src: url('../fnt/SharpGrotesk-Light15.otf') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SharpGroteskSemiBold';
+    src: url('../fnt/SharpGrotesk-SemiBold10.ttf') format('woff2');
+  }
+
+
+.text1 {
+    font-family: 'SharpGroteskMedium';
+    font-size: 500%;
+    font-weight: 600;
+    color: white;
+    position: absolute;
+    top: 47%;
+    left: 55%;
+    width: 500px;
+    height: 550px;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+}
+
+.text2 {
+    font-family: 'SharpGroteskMedium';
+    font-weight: 600;
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    width: 750px;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+}
+
+.text3 {
+    font-family: 'SharpGroteskMedium';
+    font-weight: 600;
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    width: 750px;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+}
+
+.text4 {
+  font-family: 'SharpGroteskMedium';
+  font-weight: 600;
+  font-size: 60px;
+  color: white;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  width: 750px;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  text-align: center;
+}
+
+.text-bold {
+    font-family: 'SharpGroteskBold';
+    font-weight: 600;
+    font-size: 60px;
+}
+
+.text-bold-2 {
+    font-family: 'SharpGroteskBold';
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.text-light {
+    font-family: 'SharpGroteskLight';
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.text-check {
+    font-family: 'SharpGroteskLight';
+    font-weight: 600;
+    font-size: 40px;
+    color: white;
+    width: 800px;
+    height: auto;
+    top: 500px;
+    left: 15%;
+    display: flex;
+    position: relative;
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIDE</title>
+  <link rel="stylesheet" href="./css/screen.css">
+  <link rel="stylesheet" href="./css/slide.css">
+  <link rel="stylesheet" href="./css/circle.css">
+  <link rel="stylesheet" href="./css/button.css">
+  <link rel="stylesheet" href="./css/modal.css">
+  <link rel="stylesheet" href="./css/regresive.css">
+  <link rel="stylesheet" href="./css/keyboard.css">
+  <link rel="stylesheet" href="./css/text.css">
+  <link rel="stylesheet" href="css/filter.css">
+
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Capa del slide (fondo amarillo) -->
+  <div class="capa-interna" id="intSlide">
+    <div class="slide" id="slide">
+      <div class="slides-container">
+        <!-- Fila 1: Izquierda a Derecha -->
+        <div class="slide-row slide-row-1">
+          <div class="slide-track">
+            <img src="./img/slide/imagen1.jpg">
+            <img src="./img/slide/imagen2.jpg">
+            <img src="./img/slide/imagen3.jpg">
+            <img src="./img/slide/imagen4.jpg">
+            <img src="./img/slide/imagen5.jpg">
+            <img src="./img/slide/imagen16.jpg">
+
+            <!-- Duplicar imágenes para efecto infinito -->
+            <img src="./img/slide/imagen1.jpg">
+            <img src="./img/slide/imagen2.jpg">
+            <img src="./img/slide/imagen3.jpg">
+            <img src="./img/slide/imagen4.jpg">
+            <img src="./img/slide/imagen5.jpg">
+            <img src="./img/slide/imagen16.jpg">
+
+          </div>
+        </div>
+    
+        <!-- Fila 2: Derecha a Izquierda -->
+        <div class="slide-row slide-row-2">
+          <div class="slide-track">
+            <img src="./img/slide/imagen6.jpg">
+            <img src="./img/slide/imagen7.jpg">
+            <img src="./img/slide/imagen8.jpg">
+            <img src="./img/slide/imagen9.jpg">
+            <img src="./img/slide/imagen10.jpg">
+
+
+            <!-- Duplicar imágenes para efecto infinito -->
+            <img src="./img/slide/imagen6.jpg">
+            <img src="./img/slide/imagen7.jpg">
+            <img src="./img/slide/imagen8.jpg">
+            <img src="./img/slide/imagen9.jpg">
+            <img src="./img/slide/imagen10.jpg">
+
+          </div>
+        </div>
+    
+        <!-- Fila 3: Izquierda a Derecha -->
+        <div class="slide-row slide-row-3">
+          <div class="slide-track">
+            <img src="./img/slide/imagen11.jpg">
+            <img src="./img/slide/imagen12.jpg">
+            <img src="./img/slide/imagen13.jpg">
+            <img src="./img/slide/imagen14.jpg">
+            <img src="./img/slide/imagen15.jpg">
+            <img src="./img/slide/imagen17.jpg">
+            <!-- Duplicar imágenes para efecto infinito -->
+            <img src="./img/slide/imagen11.jpg">
+            <img src="./img/slide/imagen12.jpg">
+            <img src="./img/slide/imagen13.jpg">
+            <img src="./img/slide/imagen14.jpg">
+            <img src="./img/slide/imagen15.jpg">
+            <img src="./img/slide/imagen17.jpg">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Contenedor de las barras -->
+    <div class="bar-container" id="barContainer"></div>
+
+    <!-- Pantallas -->
+    <div class="screen screen1" id="screen1">
+      <div class="text1">
+        Diálogos con el tiempo
+        <div class="pulse-button" id="buttonScreen1" onclick="goToNextScreen('screen1', 'screen2', 1, false, null, 
+        {
+          currentScreenFadeOutDuration: 2,
+          nextScreenFadeInDuration: 3,
+          fadeOutDelay: 2,
+          fadeInDelay: 2500
+        })"></div>
+      </div>
+    </div>
+
+    <div class="screen screen2" id="screen2">
+      <div class="text2">
+        Si tuvieras frente a ti a <br>
+        <span class="text-bold">Tu Yo del Futuro</span><br
+        >¿qué te imaginas <br> que te diría?
+      </div>
+      <div class="dialog-screen">
+        <span class="text-light">Visualiza cómo te gustaría que <br> fuera ese momento</span>
+        <br>¿qué metas te gustaría lograr?
+        <br>¿qué piensas hacer para llegar a ellas?
+      </div>
+      <div class="capa-externa" id="ext1"></div>
+      <div class="capa-interna" id="int1"></div>
+    </div>
+
+    <div class="screen screen3" id="screen3">
+        <div class="dialog-screen2">Graba lo que quisieras que
+          <br><span class="text-bold-2">Tu Yo del Futuro</span>
+          <br>te dijera para lograr la tranquilidad financiera.
+        </div>
+        <!-- Div que activa el modal -->
+        <div id="tip" class="tip trigger">
+          <img src="./img/tip-button.png" class="tip-button">
+        </div>
+        <!-- Modal -->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span id="close-modal" class="close-modal">&times;</span>
+            <span class="text4">Algunas ideas...</span><br>
+            <img src="./img/tips.png" class="tips-pops">
+          </div>
+        </div>
+    </div>
+
+    <!-- Screen VIDEO -->
+    <div class="screen screen4" id="screen4">
+      <!-- <div class="container-count">
+
+        <canvas id="canvas"></canvas>
+
+        <button class="button-count camera-button" id="startButton">Comenzar a grabar</button>
+        <div id="countdownCircle" class="circle-count hidden-count">3</div>
+      </div> -->
+      <div class="timer-circle" id="timer-circle">Comenzamos?</div>
+
+      <canvas id="canvas" class="hidden"></canvas>
+      <div class="button-filter hidden">
+        <button id="record-button" onclick="toggleRecording()">Grabar</button>
+        <!-- <button class="button" onclick="fetchLensFromGroup('68faf5d3-5acc-47fd-82db-7f16e775290d')">Selecciona efecto aleatorio</button> -->
+        <!-- <button class="button2" onclick="fetchLensFromGroup('3033ab6d-4e78-42a0-9853-d7b6ae09e9b4')">Cargar efecto Edad</button> -->
+      </div>
+      <!-- <script type="module" src="src/main.ts"></script> -->
+      
+    </div>
+
+    <div class="screen screen5" id="screen5">
+      <span class="text3">Tu mensaje te llegará en<br>
+        2 semanas como recordatorio
+        de los compromisos que<br>
+        hiciste con Tu Yo del Futuro.</span><br>
+        <div class="text-check">
+          <span class="check-box">
+            <input type="checkbox" style="width: 50px; height: 50px;">
+          </span>
+          <span class="check-text">
+            Quiero que mi mensaje me vuelva a llegar en una fecha posterior.
+          </span>
+        </div>
+
+        <input class="input-keyboard" type="text" id="email" readonly placeholder="Escribe tu correo electrónico">
+      <div class="keyboard">
+        <div class="row-keyboard">
+          <button class="button-keyboard" onclick="addCharacter('0')">0</button>
+          <button class="button-keyboard" onclick="addCharacter('1')">1</button>
+          <button class="button-keyboard" onclick="addCharacter('2')">2</button>
+          <button class="button-keyboard" onclick="addCharacter('3')">3</button>
+          <button class="button-keyboard" onclick="addCharacter('4')">4</button>
+          <button class="button-keyboard" onclick="addCharacter('5')">5</button>
+          <button class="button-keyboard" onclick="addCharacter('6')">6</button>
+          <button class="button-keyboard" onclick="addCharacter('7')">7</button>
+          <button class="button-keyboard" onclick="addCharacter('8')">8</button>
+          <button class="button-keyboard" onclick="addCharacter('9')">9</button>
+          <button class="button-keyboard" onclick="deleteCharacter()">⌫</button>
+        </div>
+        <div class="row-keyboard">
+          <button class="button-keyboard" onclick="addCharacter('q')">q</button>
+          <button class="button-keyboard" onclick="addCharacter('w')">w</button>
+          <button class="button-keyboard" onclick="addCharacter('e')">e</button>
+          <button class="button-keyboard" onclick="addCharacter('r')">r</button>
+          <button class="button-keyboard" onclick="addCharacter('t')">t</button>
+          <button class="button-keyboard" onclick="addCharacter('y')">y</button>
+          <button class="button-keyboard" onclick="addCharacter('u')">u</button>
+          <button class="button-keyboard" onclick="addCharacter('i')">i</button>
+          <button class="button-keyboard" onclick="addCharacter('o')">o</button>
+          <button class="button-keyboard" onclick="addCharacter('p')">p</button>
+        </div>
+        <div class="row-keyboard">
+          <button class="button-keyboard" onclick="addCharacter('a')">a</button>
+          <button class="button-keyboard" onclick="addCharacter('s')">s</button>
+          <button class="button-keyboard" onclick="addCharacter('d')">d</button>
+          <button class="button-keyboard" onclick="addCharacter('f')">f</button>
+          <button class="button-keyboard" onclick="addCharacter('g')">g</button>
+          <button class="button-keyboard" onclick="addCharacter('h')">h</button>
+          <button class="button-keyboard" onclick="addCharacter('j')">j</button>
+          <button class="button-keyboard" onclick="addCharacter('k')">k</button>
+          <button class="button-keyboard" onclick="addCharacter('l')">l</button>
+          <button class="button-keyboard" onclick="addCharacter('ñ')">ñ</button>
+        </div>
+        <div class="row-keyboard">
+          <button class="button-keyboard" onclick="addCharacter('z')">z</button>
+          <button class="button-keyboard" onclick="addCharacter('x')">x</button>
+          <button class="button-keyboard" onclick="addCharacter('c')">c</button>
+          <button class="button-keyboard" onclick="addCharacter('v')">v</button>
+          <button class="button-keyboard" onclick="addCharacter('b')">b</button>
+          <button class="button-keyboard" onclick="addCharacter('n')">n</button>
+          <button class="button-keyboard" onclick="addCharacter('m')">m</button>
+          <button class="button-keyboard" onclick="addCharacter('.')">.</button>
+          <button class="button-keyboard" onclick="addCharacter('-')">-</button>
+          <button class="button-keyboard" onclick="addCharacter('_')">_</button>
+        </div>
+        <div class="row-keyboard">
+          <button class="button-keyboard" onclick="addCharacter('@')">@</button>
+          <button class="button-keyboard" onclick="addCharacter('gmail')">gmail</button>
+          <button class="button-keyboard" onclick="addCharacter('outlook')">outlook</button>
+          <button class="button-keyboard" onclick="addCharacter('.com')">.com</button>
+          <button class="button-keyboard" onclick="addCharacter('.mx')">.mx</button>
+          <!-- <button onclick="saveEmail()">Enviar</button> -->
+        </div>
+      </div>
+    </div>
+
+
+     <div class="screen screen6" id="screen6">
+      <div id="blue-cover-screen6">
+        <div class="dialog-screen5">¿Quieres ser parte del mural de los diálogos?
+          <button class="next-button-no" id="buttonScreen6" onclick="goToNextScreen('screen6', 'screen7', 1, 'capa-externa', 'barContainer');">
+            No
+          </button>
+          <button class="next-button-yes" id="buttonScreen6-2" onclick="goToNextScreen('screen6', 'screen7', 1, null, 'barContainer');">
+            Sí
+          </button>
+        </div>
+    </div>
+     </div>
+
+
+     <div class="screen screen7" id="screen7">
+      <div class="dialog-screen7">
+        <div class="screen7-dialog-0">Es momento de actuar y <br>realizar los cambios<br> necesarios para alcanzar<br> tus metas.</div><br>
+        <div class="screen7-dialog-1">
+          Cada decisión que tomas te<br> acerca más a ese retiro soñado.<br>
+          Planea hoy y disfruta mañana.
+        </div><br>
+        <div class="screen7-dialog-2">
+          ¡Tu Yo del Futuro<br> te lo agradecerá!
+        </div>
+        <button class="next-button next-button next-button-exit" id="buttonScreen7" onclick="location.reload()">
+          Salir
+        </button>
+      </div>
+  </div>
+
+    <!-- Botones de siguiente pantalla -->
+    <button class="next-button" id="buttonScreen2" onclick="goToNextScreen('screen2','screen3',1,null,null,{currentScreenFadeOutDuration:2,nextScreenFadeInDuration:3,fadeOutDelay:2,fadeInDelay:1500});setTimeout(reducirDiametroYCambiarColor,1000);">
+      <img src="./img/arrow-button.png" class="arrow-button">
+    </button>
+  
+    <button class="next-button" id="buttonScreen3" onclick="goToNextScreen('screen3','screen4',1,'intSlide');setTimeout(agrandarDiametroYCambiarColor,1000);
+      cameraInit();">
+      <img src="./img/arrow-button.png" class="arrow-button">
+    </button>
+  
+    <button class="next-button-camera" id="buttonScreen4" onclick="goToNextScreen('screen4','screen5',1);">
+      <img src="./img/arrow-button.png" class="arrow-button">
+    </button>
+  
+    <button class="next-button" id="buttonScreen5" onclick="goToNextScreen('screen5','screen6',1,'barContainer','intSlide');">
+      <img src="./img/arrow-button.png" class="arrow-button">
+    </button>
+  
+    <button class="next-button" id="buttonScreen7" onclick="goToNextScreen('screen6','screen7',1);">
+      <img src="./img/arrow-button.png" class="arrow-button">
+    </button>
+
+  <script type="module" src="./src/main.ts"></script>
+  <script src="./js/screen.js"></script>
+  <script src="./js/slide.js"></script>
+  <script src="./js/circle.js"></script>
+  <script src="./js/modal.js"></script>
+  <script src="./js/regresive.js"></script>
+  <script src="./js/keyboard.js"></script>
+  <script src="./js/snapchat.js"></script>
+  <script src="./js/filter.js"></script>
+
+</body>
+</html>
