@@ -30,20 +30,25 @@ import { CameraKitSession } from '@snap/camera-kit'; // Make sure this import ex
     const liveRenderTarget = document.getElementById('canvas') as HTMLCanvasElement;
 
     // Create a session with the specified live render target
-    session = await cameraKit.createSession({ liveRenderTarget });
+    session = await cameraKit.createSession({ 
+      liveRenderTarget,
+      renderTargetResolution: {
+        width: window.innerWidth,
+        height: window.innerHeight
+      }
+    });
 
     // Get the user's camera stream
 
     // const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
-          const mediaStream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          width: { ideal: 1080  }, // Desired width (e.g., Full HD)
-          height: { ideal: 1920 }, // Desired height (e.g., Full HD)
-          frameRate: { ideal: 30 }, // Optional: frame rate
-          aspectRatio: 9 / 16, // Ensures a vertical aspect ratio
-
-          facingMode: "user", // Use "environment" for rear camera
-        },
+        // Modifica estas líneas para cambiar las dimensiones iniciales
+const mediaStream = await navigator.mediaDevices.getUserMedia({
+  video: {
+    width: { ideal: 1920 },
+    height: { ideal: 1080 },
+    frameRate: { ideal: 30 },
+    facingMode: "user",
+  },
 });
 // Create a hidden <video> element for preprocessing the video feed
         const video = document.createElement('video');
@@ -53,16 +58,10 @@ import { CameraKitSession } from '@snap/camera-kit'; // Make sure this import ex
         video.playsInline = true;
 
         video.onloadedmetadata = async () => {
-          // Flip the canvas feed using CSS
-
-          liveRenderTarget.style.transform = 'scaleX(-1) rotate(-0deg)';
-
-          // Pass the video feed to Snap Camera Kit
-          await session.setSource(video);
-
-          // Start the session
-          await session.play();
-        };
+  // No manipules el estilo aquí, déjalo al CSS
+  await session.setSource(video);
+  await session.play();
+};
 
         // Toggle Recording
 	(window as any).toggleRecording = () => {
